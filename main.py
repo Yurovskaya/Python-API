@@ -70,6 +70,12 @@ second_response = response_9
 print(first_response.url)
 print(second_response.url)
 
+# Заголовки
+
+headers = {"some_header":"123"}
+response_11 = requests.get("https://playground.learnqa.ru/api/show_all_headers", headers=headers)
+print(response_11.text)
+print(response_11.headers)
 
 
 
