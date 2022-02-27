@@ -29,7 +29,14 @@ except JSONDecodeError:
     print("Response is not a JSON format")
 
 
+# Тип запроса и параметры запроса
 
+response_2 = requests.get("https://playground.learnqa.ru/api/check_type",params={"name": "Dasha"})
+print(response_2.text)
 
+# Параметры для все типов запросов, кроме GET
+
+response_4 = requests.post("https://playground.learnqa.ru/api/check_type",data= {"name": "Dasha"})
+print(response_4.text)
 
 
