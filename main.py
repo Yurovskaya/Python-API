@@ -1,3 +1,4 @@
+from json.decoder import JSONDecodeError
 import requests
 
 response = requests.get("https://playground.learnqa.ru/api/hello")
@@ -17,9 +18,15 @@ print(response_1.text)
 response_one = requests.get("https://playground.learnqa.ru/api/get_text")
 print(response_one.text)
 
-# Парсим полученный ответ
+# Парсим текст котороый не является JSON
+response_1 = requests.get("https://playground.learnqa.ru/api/get_text")
+print(response_1.text)
 
-
+try:
+    parsed_response_1_text = response_1.json()
+    print(parsed_response_1_text)
+except JSONDecodeError:
+    print("Response is not a JSON format")
 
 
 
